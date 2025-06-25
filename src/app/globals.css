@@ -291,3 +291,108 @@ body {
   background: var(--background);
   border-radius: 50% 50% 0 0 / 100% 100% 0 0;
 }
+
+/* Floating Logo Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-12px) rotate(1deg);
+  }
+  66% {
+    transform: translateY(-8px) rotate(-1deg);
+  }
+}
+
+@keyframes float-alt {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  25% {
+    transform: translateY(-8px) translateX(-2px);
+  }
+  50% {
+    transform: translateY(-15px) translateX(0px);
+  }
+  75% {
+    transform: translateY(-10px) translateX(2px);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-float {
+  animation: float 8s ease-in-out infinite;
+}
+
+.animate-float-alt {
+  animation: float-alt 10s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 25s linear infinite;
+}
+
+/* SDLC Text and Logo Animation Sequence */
+@keyframes sdlc-text-cycle {
+  0%, 40% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  45%, 55% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  60%, 95% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes sdlc-logos-cycle {
+  0%, 45% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  50%, 90% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  95%, 100% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+}
+
+@keyframes bounce-subtle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.animate-sdlc-text {
+  animation: sdlc-text-cycle 8s ease-in-out infinite;
+}
+
+.animate-sdlc-logos {
+  animation: sdlc-logos-cycle 8s ease-in-out infinite;
+}
+
+.animate-bounce-subtle {
+  animation: bounce-subtle 1.5s ease-in-out infinite;
+}

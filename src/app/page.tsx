@@ -47,7 +47,41 @@ export default function Home() {
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-5xl md:text-7xl font-bold text-primary-white mb-6 leading-tight pt-8">
-              Automate your entire <span className="gradient-text">SDLC</span>{" "}
+              Automate your entire{" "}
+              <span className="inline-block relative">
+                {/* SDLC Text */}
+                <span className="gradient-text animate-sdlc-text">SDLC</span>
+
+                {/* Logo Animation Container */}
+                <div className="absolute inset-0 flex items-center justify-center animate-sdlc-logos opacity-0">
+                  <div className="flex items-center justify-center space-x-1 md:space-x-2 px-2 pt-3">
+                    <img
+                      src="/logos/Jira-mark-brand-RGB.svg"
+                      alt="Jira"
+                      className="w-8 h-8 md:w-12 md:h-12 animate-bounce-subtle"
+                      style={{ animationDelay: "0.2s" }}
+                    />
+                    <img
+                      src="/logos/github-mark.svg"
+                      alt="GitHub"
+                      className="w-7 h-7 md:w-10 md:h-10 animate-bounce-subtle brightness-0 invert"
+                      style={{ animationDelay: "0.4s" }}
+                    />
+                    <img
+                      src="/logos/Figma-logo.svg"
+                      alt="Figma"
+                      className="w-6 h-6 md:w-9 md:h-9 animate-bounce-subtle"
+                      style={{ animationDelay: "0.6s" }}
+                    />
+                    <img
+                      src="/logos/jenkins-svgrepo-com.svg"
+                      alt="Jenkins"
+                      className="w-8 h-8 md:w-11 md:h-11 animate-bounce-subtle"
+                      style={{ animationDelay: "0.8s" }}
+                    />
+                  </div>
+                </div>
+              </span>{" "}
               with <span className="gradient-text-alt">AI</span>
             </h1>
             <p className="text-xl md:text-2xl text-primary-white-80 mb-8 leading-relaxed">
