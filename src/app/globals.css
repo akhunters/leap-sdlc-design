@@ -122,6 +122,11 @@
 
 
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 120px; /* Account for floating header + spacing */
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
