@@ -100,7 +100,7 @@ export default function Home() {
       {/* Features Section */}
       <section
         id="features"
-        className="px-6 py-20 bg-secondary-cool-grey-1c-40"
+        className="px-6 py-20 bg-secondary-cool-grey-1c-40 section-curve"
       >
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
