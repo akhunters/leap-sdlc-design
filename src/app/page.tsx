@@ -1,33 +1,83 @@
+"use client";
+
+import { useState, useEffect } from "react";
+
 export default function Home() {
+  const [isDarkSection, setIsDarkSection] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const heroSection = document.querySelector(
+        ".hero-gradient"
+      ) as HTMLElement;
+      const ctaSection = document.querySelector(".cta-section") as HTMLElement;
+
+      if (heroSection && ctaSection) {
+        const heroHeight = heroSection.offsetHeight;
+        const ctaTop = ctaSection.offsetTop;
+        const ctaBottom = ctaTop + ctaSection.offsetHeight;
+
+        // Check if we're in hero section or CTA section (dark backgrounds)
+        const isInDarkSection =
+          scrollY < heroHeight ||
+          (scrollY >= ctaTop - 100 && scrollY <= ctaBottom);
+        setIsDarkSection(isInDarkSection);
+      }
+    };
+
+    // Initial check
+    handleScroll();
+
+    // Add scroll listener
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return (
     <div className="min-h-screen bg-background">
       {/* Navigation Header */}
       <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-[95%] max-w-6xl">
-        <div className="flex items-center justify-between px-6 py-3 bg-gradient-to-br from-primary-white-20 to-primary-white-10 border border-primary-white-40 backdrop-blur-sm rounded-2xl shadow-2xl">
+        <div
+          className={`flex items-center justify-between px-6 py-3 backdrop-blur-sm rounded-2xl shadow-2xl transition-all duration-300 ${
+            isDarkSection
+              ? "bg-gradient-to-br from-primary-white-20 to-primary-white-10 border border-primary-white-40"
+              : "bg-primary-white/95 border border-secondary-cool-grey-1c-40"
+          }`}
+        >
           <div className="flex items-center">
             <img
               src="https://www.emiratesnbd.com/-/media/enbd/images/logos/horizontal_logo.svg?la=en&hash=A33654369475CF9B1FA76FEB570F9B9D"
               alt="Emirates NBD Logo"
-              className="h-8 w-auto"
+              className={`h-8 w-auto transition-all duration-300 ${
+                !isDarkSection ? "brightness-0" : ""
+              }`}
             />
           </div>
 
           <div className="hidden md:flex items-center space-x-8">
             <a
               href="#features"
-              className="text-primary-white hover:text-accent-2935c transition-colors font-medium"
+              className={`hover:text-accent-2935c transition-colors font-medium ${
+                isDarkSection ? "text-primary-white" : "text-primary-2767c"
+              }`}
             >
               Features
             </a>
             <a
               href="#how-it-works"
-              className="text-primary-white hover:text-accent-2935c transition-colors font-medium"
+              className={`hover:text-accent-2935c transition-colors font-medium ${
+                isDarkSection ? "text-primary-white" : "text-primary-2767c"
+              }`}
             >
               How it works
             </a>
             <a
               href="#docs"
-              className="text-primary-white hover:text-accent-2935c transition-colors font-medium"
+              className={`hover:text-accent-2935c transition-colors font-medium ${
+                isDarkSection ? "text-primary-white" : "text-primary-2767c"
+              }`}
             >
               Documentation
             </a>
@@ -298,7 +348,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="px-6 py-20 bg-primary-2767c">
+      <section className="cta-section px-6 py-20 bg-primary-2767c">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-primary-white mb-6">
             Ready to transform your SDLC?
@@ -325,52 +375,210 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="px-6 py-12 border-t border-secondary-cool-grey-1c">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
-            <div className="flex items-center space-x-3 mb-6 md:mb-0">
-              <img
-                src="https://www.emiratesnbd.com/-/media/enbd/images/logos/horizontal_logo.svg?la=en&hash=A33654369475CF9B1FA76FEB570F9B9D"
-                alt="Emirates NBD Logo"
-                className="h-8 w-auto"
-              />
-              <span className="text-xl font-bold text-primary-2767c">
-                Leap IDE
-              </span>
+      <footer className="bg-gradient-to-br from-secondary-cool-grey-1c-20 to-secondary-warm-grey-1c-20 border-t border-secondary-cool-grey-1c-40">
+        <div className="max-w-7xl mx-auto px-6 py-16">
+          {/* Main Footer Content */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+            {/* Brand Section */}
+            <div className="lg:col-span-2">
+              <div className="flex items-center space-x-3 mb-6">
+                <img
+                  src="https://www.emiratesnbd.com/-/media/enbd/images/logos/horizontal_logo.svg?la=en&hash=A33654369475CF9B1FA76FEB570F9B9D"
+                  alt="Emirates NBD Logo"
+                  className="h-10 w-auto"
+                />
+              </div>
+              <p className="text-secondary-7450c text-lg leading-relaxed mb-6 max-w-md">
+                Revolutionizing software development with AI-powered automation.
+                From ideas to production in minutes, not months.
+              </p>
+
+              {/* Tool Integration Icons */}
+              <div className="flex items-center space-x-4 mb-6">
+                <span className="text-sm text-secondary-430c font-medium">
+                  Integrated with:
+                </span>
+                <div className="flex items-center space-x-3">
+                  <img
+                    src="/logos/Jira-mark-brand-RGB.svg"
+                    alt="Jira"
+                    className="w-6 h-6 opacity-70 hover:opacity-100 transition-opacity"
+                  />
+                  <img
+                    src="/logos/github-mark.svg"
+                    alt="GitHub"
+                    className="w-6 h-6 opacity-70 hover:opacity-100 transition-opacity brightness-0"
+                  />
+                  <img
+                    src="/logos/Figma-logo.svg"
+                    alt="Figma"
+                    className="w-6 h-6 opacity-70 hover:opacity-100 transition-opacity"
+                  />
+                  <img
+                    src="/logos/jenkins-svgrepo-com.svg"
+                    alt="Jenkins"
+                    className="w-6 h-6 opacity-70 hover:opacity-100 transition-opacity"
+                  />
+                  <span className="text-secondary-430c text-sm">+more</span>
+                </div>
+              </div>
             </div>
 
-            <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8">
-              <a
-                href="#"
-                className="text-secondary-7450c hover:text-primary-2767c transition-colors"
-              >
-                Privacy
-              </a>
-              <a
-                href="#"
-                className="text-secondary-7450c hover:text-primary-2767c transition-colors"
-              >
-                Terms
-              </a>
-              <a
-                href="#"
-                className="text-secondary-7450c hover:text-primary-2767c transition-colors"
-              >
+            {/* Product Links */}
+            <div>
+              <h3 className="text-lg font-semibold text-primary-2767c mb-6">
+                Product
+              </h3>
+              <ul className="space-y-4">
+                <li>
+                  <a
+                    href="#features"
+                    className="text-secondary-7450c hover:text-accent-2935c transition-colors flex items-center gap-2"
+                  >
+                    <span className="material-symbols-rounded text-sm">
+                      arrow_forward
+                    </span>
+                    Features
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#how-it-works"
+                    className="text-secondary-7450c hover:text-accent-2935c transition-colors flex items-center gap-2"
+                  >
+                    <span className="material-symbols-rounded text-sm">
+                      arrow_forward
+                    </span>
+                    How it works
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-secondary-7450c hover:text-accent-2935c transition-colors flex items-center gap-2"
+                  >
+                    <span className="material-symbols-rounded text-sm">
+                      arrow_forward
+                    </span>
+                    Integrations
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-secondary-7450c hover:text-accent-2935c transition-colors flex items-center gap-2"
+                  >
+                    <span className="material-symbols-rounded text-sm">
+                      arrow_forward
+                    </span>
+                    API Docs
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Support Links */}
+            <div>
+              <h3 className="text-lg font-semibold text-primary-2767c mb-6">
                 Support
-              </a>
-              <a
-                href="#"
-                className="text-secondary-7450c hover:text-primary-2767c transition-colors"
-              >
-                Contact
-              </a>
+              </h3>
+              <ul className="space-y-4">
+                <li>
+                  <a
+                    href="#"
+                    className="text-secondary-7450c hover:text-accent-2935c transition-colors flex items-center gap-2"
+                  >
+                    <span className="material-symbols-rounded text-sm">
+                      support_agent
+                    </span>
+                    Help Center
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-secondary-7450c hover:text-accent-2935c transition-colors flex items-center gap-2"
+                  >
+                    <span className="material-symbols-rounded text-sm">
+                      forum
+                    </span>
+                    Community
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-secondary-7450c hover:text-accent-2935c transition-colors flex items-center gap-2"
+                  >
+                    <span className="material-symbols-rounded text-sm">
+                      school
+                    </span>
+                    Tutorials
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-secondary-7450c hover:text-accent-2935c transition-colors flex items-center gap-2"
+                  >
+                    <span className="material-symbols-rounded text-sm">
+                      contact_mail
+                    </span>
+                    Contact Us
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-secondary-7450c hover:text-accent-2935c transition-colors flex items-center gap-2"
+                  >
+                    <span className="material-symbols-rounded text-sm">
+                      bug_report
+                    </span>
+                    Report Issue
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
 
-          <div className="mt-8 pt-8 border-t border-secondary-cool-grey-1c text-center">
-            <p className="text-secondary-430c">
-              © 2024 Leap IDE. All rights reserved. Automating SDLC with AI.
-            </p>
+          {/* Bottom Section */}
+          <div className="pt-8 border-t border-secondary-cool-grey-1c-40">
+            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+              {/* Copyright */}
+              <div className="text-center md:text-left">
+                <p className="text-secondary-430c text-sm">
+                  © 2025 Emirates NBD. All rights reserved.
+                  <span className="text-accent-2935c font-medium">
+                    {" "}
+                    Leap IDE
+                  </span>{" "}
+                  - Automating SDLC with AI.
+                </p>
+              </div>
+
+              {/* Legal Links */}
+              <div className="flex items-center space-x-6 text-sm">
+                <a
+                  href="#"
+                  className="text-secondary-7450c hover:text-accent-2935c transition-colors"
+                >
+                  Privacy Policy
+                </a>
+                <a
+                  href="#"
+                  className="text-secondary-7450c hover:text-accent-2935c transition-colors"
+                >
+                  Terms of Service
+                </a>
+                <a
+                  href="#"
+                  className="text-secondary-7450c hover:text-accent-2935c transition-colors"
+                >
+                  Cookies
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </footer>
