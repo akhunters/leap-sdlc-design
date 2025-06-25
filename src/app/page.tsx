@@ -2,47 +2,48 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background">
       {/* Navigation Header */}
-      <nav className="flex items-center justify-between px-6 py-4 border-b border-secondary-cool-grey-1c">
-        <div className="flex items-center space-x-2">
-          <div className="w-8 h-8 bg-accent-2935c rounded-lg flex items-center justify-center">
-            <span className="text-primary-white font-bold text-sm">L</span>
+      <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-[95%] max-w-6xl">
+        <div className="flex items-center justify-between px-6 py-3 bg-gradient-to-br from-primary-white-20 to-primary-white-10 border border-primary-white-40 backdrop-blur-sm rounded-2xl shadow-2xl">
+          <div className="flex items-center">
+            <img
+              src="https://www.emiratesnbd.com/-/media/enbd/images/logos/horizontal_logo.svg?la=en&hash=A33654369475CF9B1FA76FEB570F9B9D"
+              alt="Emirates NBD Logo"
+              className="h-8 w-auto"
+            />
           </div>
-          <span className="text-xl font-bold text-primary-2767c">Leap IDE</span>
-        </div>
 
-        <div className="hidden md:flex items-center space-x-8">
-          <a
-            href="#features"
-            className="text-secondary-7450c hover:text-primary-2767c transition-colors"
-          >
-            Features
-          </a>
-          <a
-            href="#how-it-works"
-            className="text-secondary-7450c hover:text-primary-2767c transition-colors"
-          >
-            How it works
-          </a>
-          <a
-            href="#docs"
-            className="text-secondary-7450c hover:text-primary-2767c transition-colors"
-          >
-            Documentation
-          </a>
-        </div>
+          <div className="hidden md:flex items-center space-x-8">
+            <a
+              href="#features"
+              className="text-primary-white hover:text-accent-2935c transition-colors font-medium"
+            >
+              Features
+            </a>
+            <a
+              href="#how-it-works"
+              className="text-primary-white hover:text-accent-2935c transition-colors font-medium"
+            >
+              How it works
+            </a>
+            <a
+              href="#docs"
+              className="text-primary-white hover:text-accent-2935c transition-colors font-medium"
+            >
+              Documentation
+            </a>
+          </div>
 
-        <div className="flex items-center space-x-4">
-          <button className="text-secondary-7450c hover:text-primary-2767c transition-colors">
-            Login
-          </button>
-          <button className="bg-accent-2935c text-primary-white px-4 py-2 rounded-lg hover:bg-accent-2935c-80 transition-colors">
-            Access Leap IDE
-          </button>
+          <div className="flex items-center">
+            <button className="bg-primary-2767c text-primary-white hover:bg-accent-2935c transition-colors font-medium px-6 py-2 rounded-lg flex items-center gap-2 cursor-pointer">
+              <span className="material-symbols-rounded text-lg">login</span>
+              Login
+            </button>
+          </div>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="hero-gradient px-6 py-20 text-center relative overflow-hidden">
+      <section className="hero-gradient px-6 py-20 text-center relative overflow-hidden pt-24">
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-5xl md:text-7xl font-bold text-primary-white mb-6 leading-tight">
@@ -55,10 +56,16 @@ export default function Home() {
               by advanced AI.
             </p>
             <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-12">
-              <button className="bg-primary-white text-primary-2767c px-8 py-4 rounded-lg text-lg font-semibold hover:bg-primary-white-80 transition-colors shadow-lg">
+              <button className="bg-primary-white text-primary-2767c px-8 py-4 rounded-lg text-lg font-semibold hover:bg-primary-white-80 transition-colors shadow-lg flex items-center gap-3 cursor-pointer">
+                <span className="material-symbols-rounded text-xl">
+                  play_arrow
+                </span>
                 Start building now
               </button>
-              <button className="border-2 border-primary-white text-primary-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-primary-white hover:text-primary-2767c transition-colors">
+              <button className="border-2 border-primary-white text-primary-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-primary-white hover:text-primary-2767c transition-colors flex items-center gap-3 cursor-pointer">
+                <span className="material-symbols-rounded text-xl">
+                  description
+                </span>
                 View documentation
               </button>
             </div>
@@ -113,57 +120,88 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-primary-white p-6 rounded-xl shadow-sm border border-secondary-cool-grey-1c">
-              <div className="w-12 h-12 bg-accent-2935c-20 rounded-lg flex items-center justify-center mb-4">
-                <span className="text-accent-2935c text-2xl">📋</span>
-              </div>
-              <h3 className="text-xl font-semibold text-primary-2767c mb-2">
-                Requirement Gathering
-              </h3>
-              <p className="text-secondary-7450c">
-                AI-powered analysis of business needs and automatic conversion
-                to technical requirements.
-              </p>
+          {/* Magical Glass Cards Grid */}
+          <div className="relative">
+            {/* Decorative Background Elements */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+              <div className="absolute top-10 left-10 w-32 h-32 bg-accent-2935c-10 rounded-full blur-xl animate-pulse"></div>
+              <div className="absolute top-32 right-20 w-24 h-24 bg-accent-2935c-20 rounded-full blur-lg animate-bounce"></div>
+              <div className="absolute bottom-20 left-32 w-20 h-20 bg-accent-2935c-15 rounded-full blur-md"></div>
+              <div className="absolute bottom-10 right-10 w-28 h-28 bg-accent-2935c-10 rounded-full blur-lg animate-pulse"></div>
             </div>
 
-            <div className="bg-primary-white p-6 rounded-xl shadow-sm border border-secondary-cool-grey-1c">
-              <div className="w-12 h-12 bg-accent-2935c-20 rounded-lg flex items-center justify-center mb-4">
-                <span className="text-accent-2935c text-2xl">📊</span>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
+              {/* Requirement Gathering */}
+              <div className="group transform hover:scale-105 transition-all duration-500">
+                <div className="bg-gradient-to-br from-primary-white via-primary-white-80 to-accent-2935c-5 p-8 rounded-2xl shadow-2xl hover:shadow-3xl border border-accent-2935c-20 hover:border-accent-2935c-40 backdrop-blur-sm relative overflow-hidden">
+                  <div className="flex items-center justify-center w-20 h-20 bg-gradient-to-br from-accent-2935c to-accent-2935c-80 rounded-2xl mb-6 shadow-lg group-hover:rotate-6 transition-transform duration-300">
+                    <span className="material-symbols-rounded text-primary-white text-4xl">
+                      description
+                    </span>
+                  </div>
+                  <h3 className="text-2xl font-bold text-primary-2767c mb-4 group-hover:text-accent-2935c transition-colors duration-300">
+                    Requirement Gathering
+                  </h3>
+                  <p className="text-secondary-7450c leading-relaxed">
+                    AI-powered analysis of business needs and automatic
+                    conversion to technical requirements.
+                  </p>
+                </div>
               </div>
-              <h3 className="text-xl font-semibold text-primary-2767c mb-2">
-                Jira Integration
-              </h3>
-              <p className="text-secondary-7450c">
-                Automatically generate epics, stories, and tasks directly in
-                your Jira workspace.
-              </p>
-            </div>
 
-            <div className="bg-primary-white p-6 rounded-xl shadow-sm border border-secondary-cool-grey-1c">
-              <div className="w-12 h-12 bg-accent-2935c-20 rounded-lg flex items-center justify-center mb-4">
-                <span className="text-accent-2935c text-2xl">⚡</span>
+              {/* Jira Integration */}
+              <div className="group transform hover:scale-105 transition-all duration-500 h-full">
+                <div className="bg-gradient-to-bl from-primary-white via-primary-white-80 to-accent-2935c-5 p-8 rounded-2xl shadow-2xl hover:shadow-3xl border border-accent-2935c-20 hover:border-accent-2935c-40 backdrop-blur-sm relative overflow-hidden">
+                  <div className="flex items-center justify-center w-20 h-20 bg-gradient-to-bl from-accent-2935c to-accent-2935c-80 rounded-2xl mb-6 shadow-lg group-hover:-rotate-6 transition-transform duration-300">
+                    <span className="material-symbols-rounded text-primary-white text-4xl">
+                      integration_instructions
+                    </span>
+                  </div>
+                  <h3 className="text-2xl font-bold text-primary-2767c mb-4 group-hover:text-accent-2935c transition-colors duration-300">
+                    Jira Integration
+                  </h3>
+                  <p className="text-secondary-7450c leading-relaxed">
+                    Automatically generate epics, stories, and tasks directly in
+                    your Jira workspace.
+                  </p>
+                </div>
               </div>
-              <h3 className="text-xl font-semibold text-primary-2767c mb-2">
-                Code Generation
-              </h3>
-              <p className="text-secondary-7450c">
-                Transform requirements into production-ready code with
-                AI-powered development.
-              </p>
-            </div>
 
-            <div className="bg-primary-white p-6 rounded-xl shadow-sm border border-secondary-cool-grey-1c">
-              <div className="w-12 h-12 bg-accent-2935c-20 rounded-lg flex items-center justify-center mb-4">
-                <span className="text-accent-2935c text-2xl">🚀</span>
+              {/* Code Generation */}
+              <div className="group transform hover:scale-105 transition-all duration-500">
+                <div className="bg-gradient-to-tr from-primary-white via-primary-white-80 to-accent-2935c-5 p-8 rounded-2xl shadow-2xl hover:shadow-3xl border border-accent-2935c-20 hover:border-accent-2935c-40 backdrop-blur-sm relative overflow-hidden">
+                  <div className="flex items-center justify-center w-20 h-20 bg-gradient-to-tr from-accent-2935c to-accent-2935c-80 rounded-2xl mb-6 shadow-lg group-hover:rotate-12 transition-transform duration-300">
+                    <span className="material-symbols-rounded text-primary-white text-4xl">
+                      code
+                    </span>
+                  </div>
+                  <h3 className="text-2xl font-bold text-primary-2767c mb-4 group-hover:text-accent-2935c transition-colors duration-300">
+                    Code Generation
+                  </h3>
+                  <p className="text-secondary-7450c leading-relaxed">
+                    Transform requirements into production-ready code with
+                    AI-powered development.
+                  </p>
+                </div>
               </div>
-              <h3 className="text-xl font-semibold text-primary-2767c mb-2">
-                Auto Deployment
-              </h3>
-              <p className="text-secondary-7450c">
-                Seamless deployment pipeline automation from code to production
-                environment.
-              </p>
+
+              {/* Auto Deployment */}
+              <div className="group transform hover:scale-105 transition-all duration-500">
+                <div className="bg-gradient-to-tl from-primary-white via-primary-white-80 to-accent-2935c-5 p-8 rounded-2xl shadow-2xl hover:shadow-3xl border border-accent-2935c-20 hover:border-accent-2935c-40 backdrop-blur-sm relative overflow-hidden">
+                  <div className="flex items-center justify-center w-20 h-20 bg-gradient-to-tl from-accent-2935c to-accent-2935c-80 rounded-2xl mb-6 shadow-lg group-hover:-rotate-12 transition-transform duration-300">
+                    <span className="material-symbols-rounded text-primary-white text-4xl">
+                      rocket_launch
+                    </span>
+                  </div>
+                  <h3 className="text-2xl font-bold text-primary-2767c mb-4 group-hover:text-accent-2935c transition-colors duration-300">
+                    Auto Deployment
+                  </h3>
+                  <p className="text-secondary-7450c leading-relaxed">
+                    Seamless deployment pipeline automation from code to
+                    production environment.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -236,10 +274,16 @@ export default function Home() {
             AI-powered automation.
           </p>
           <div className="flex flex-col md:flex-row items-center justify-center gap-4">
-            <button className="bg-accent-2935c text-primary-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-accent-2935c-80 transition-colors">
+            <button className="bg-accent-2935c text-primary-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-accent-2935c-80 transition-colors flex items-center gap-3 cursor-pointer">
+              <span className="material-symbols-rounded text-xl">
+                rocket_launch
+              </span>
               Launch Leap IDE
             </button>
-            <button className="border border-primary-white-40 text-primary-white px-8 py-4 rounded-lg text-lg font-semibold hover:border-primary-white hover:bg-primary-white-20 transition-colors">
+            <button className="border border-primary-white-40 text-primary-white px-8 py-4 rounded-lg text-lg font-semibold hover:border-primary-white hover:bg-primary-white-20 transition-colors flex items-center gap-3 cursor-pointer">
+              <span className="material-symbols-rounded text-xl">
+                support_agent
+              </span>
               Get support
             </button>
           </div>
@@ -250,10 +294,12 @@ export default function Home() {
       <footer className="px-6 py-12 border-t border-secondary-cool-grey-1c">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
-            <div className="flex items-center space-x-2 mb-6 md:mb-0">
-              <div className="w-8 h-8 bg-accent-2935c rounded-lg flex items-center justify-center">
-                <span className="text-primary-white font-bold text-sm">L</span>
-              </div>
+            <div className="flex items-center space-x-3 mb-6 md:mb-0">
+              <img
+                src="https://www.emiratesnbd.com/-/media/enbd/images/logos/horizontal_logo.svg?la=en&hash=A33654369475CF9B1FA76FEB570F9B9D"
+                alt="Emirates NBD Logo"
+                className="h-8 w-auto"
+              />
               <span className="text-xl font-bold text-primary-2767c">
                 Leap IDE
               </span>
