@@ -46,7 +46,7 @@ export default function Home() {
       <section className="hero-gradient px-6 py-20 text-center relative overflow-hidden pt-24">
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-7xl font-bold text-primary-white mb-6 leading-tight">
+            <h1 className="text-5xl md:text-7xl font-bold text-primary-white mb-6 leading-tight pt-8">
               Automate your entire <span className="gradient-text">SDLC</span>{" "}
               with <span className="gradient-text-alt">AI</span>
             </h1>
