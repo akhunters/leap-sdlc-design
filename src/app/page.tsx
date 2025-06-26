@@ -214,75 +214,58 @@ export default function Home() {
               <div className="absolute bottom-10 right-10 w-28 h-28 bg-accent-2935c-10 rounded-full blur-lg animate-pulse"></div>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
-              {/* Requirement Gathering */}
-              <div className="group transform hover:scale-105 transition-all duration-500">
-                <div className="bg-gradient-to-br from-primary-white via-primary-white-80 to-accent-2935c-5 p-8 rounded-2xl shadow-2xl hover:shadow-3xl border border-accent-2935c-20 hover:border-accent-2935c-40 backdrop-blur-sm relative overflow-hidden">
-                  <div className="flex items-center justify-center w-20 h-20 bg-gradient-to-br from-accent-2935c to-accent-2935c-80 rounded-2xl mb-6 shadow-lg group-hover:rotate-6 transition-transform duration-300">
-                    <span className="material-symbols-rounded text-primary-white text-4xl">
-                      description
-                    </span>
-                  </div>
-                  <h3 className="text-2xl font-bold text-primary-2767c mb-4 group-hover:text-accent-2935c transition-colors duration-300">
-                    Requirement Gathering
-                  </h3>
-                  <p className="text-secondary-7450c leading-relaxed">
-                    AI-powered analysis of business needs and automatic
-                    conversion to technical requirements.
-                  </p>
-                </div>
-              </div>
-
-              {/* Jira Integration */}
+            <div className="grid md:grid-cols-3 gap-8 relative z-10">
+              {/* Idea to Requirements */}
               <div className="group transform hover:scale-105 transition-all duration-500 h-full">
-                <div className="bg-gradient-to-bl from-primary-white via-primary-white-80 to-accent-2935c-5 p-8 rounded-2xl shadow-2xl hover:shadow-3xl border border-accent-2935c-20 hover:border-accent-2935c-40 backdrop-blur-sm relative overflow-hidden">
-                  <div className="flex items-center justify-center w-20 h-20 bg-gradient-to-bl from-accent-2935c to-accent-2935c-80 rounded-2xl mb-6 shadow-lg group-hover:-rotate-6 transition-transform duration-300">
-                    <span className="material-symbols-rounded text-primary-white text-4xl">
-                      integration_instructions
+                <div className="bg-gradient-to-br from-primary-white via-primary-white-80 to-accent-2935c-5 p-8 rounded-2xl shadow-2xl hover:shadow-3xl border border-accent-2935c-20 hover:border-accent-2935c-40 backdrop-blur-sm relative overflow-hidden h-full flex flex-col">
+                  <div className="flex items-center justify-center w-20 h-20 bg-gradient-to-br from-accent-2935c to-accent-2935c-80 rounded-2xl mb-6 shadow-lg group-hover:rotate-6 transition-transform duration-300">
+                    <span className="material-symbols-rounded text-primary-white text-6xl">
+                      lightbulb
                     </span>
                   </div>
                   <h3 className="text-2xl font-bold text-primary-2767c mb-4 group-hover:text-accent-2935c transition-colors duration-300">
-                    Jira Integration
+                    Idea to Requirements
                   </h3>
-                  <p className="text-secondary-7450c leading-relaxed">
-                    Automatically generate epics, stories, and tasks directly in
-                    your Jira workspace.
+                  <p className="text-secondary-7450c leading-relaxed flex-grow">
+                    Capture requirements via BRD docs or chat, then
+                    automatically generate and sync Jira epics and stories for
+                    seamless project planning.
                   </p>
                 </div>
               </div>
 
-              {/* Code Generation */}
-              <div className="group transform hover:scale-105 transition-all duration-500">
-                <div className="bg-gradient-to-tr from-primary-white via-primary-white-80 to-accent-2935c-5 p-8 rounded-2xl shadow-2xl hover:shadow-3xl border border-accent-2935c-20 hover:border-accent-2935c-40 backdrop-blur-sm relative overflow-hidden">
-                  <div className="flex items-center justify-center w-20 h-20 bg-gradient-to-tr from-accent-2935c to-accent-2935c-80 rounded-2xl mb-6 shadow-lg group-hover:rotate-12 transition-transform duration-300">
-                    <span className="material-symbols-rounded text-primary-white text-4xl">
+              {/* Requirements to Code */}
+              <div className="group transform hover:scale-105 transition-all duration-500 h-full">
+                <div className="bg-gradient-to-bl from-primary-white via-primary-white-80 to-accent-2935c-5 p-8 rounded-2xl shadow-2xl hover:shadow-3xl border border-accent-2935c-20 hover:border-accent-2935c-40 backdrop-blur-sm relative overflow-hidden h-full flex flex-col">
+                  <div className="flex items-center justify-center w-20 h-20 bg-gradient-to-bl from-accent-2935c to-accent-2935c-80 rounded-2xl mb-6 shadow-lg group-hover:-rotate-6 transition-transform duration-300">
+                    <span className="material-symbols-rounded text-primary-white text-6xl">
                       code
                     </span>
                   </div>
                   <h3 className="text-2xl font-bold text-primary-2767c mb-4 group-hover:text-accent-2935c transition-colors duration-300">
-                    Code Generation
+                    Requirements to Code
                   </h3>
-                  <p className="text-secondary-7450c leading-relaxed">
-                    Transform requirements into production-ready code with
-                    AI-powered development.
+                  <p className="text-secondary-7450c leading-relaxed flex-grow">
+                    Convert technical requirements into production-ready code
+                    with intelligent scaffolding and implementation.
                   </p>
                 </div>
               </div>
 
-              {/* Auto Deployment */}
-              <div className="group transform hover:scale-105 transition-all duration-500">
-                <div className="bg-gradient-to-tl from-primary-white via-primary-white-80 to-accent-2935c-5 p-8 rounded-2xl shadow-2xl hover:shadow-3xl border border-accent-2935c-20 hover:border-accent-2935c-40 backdrop-blur-sm relative overflow-hidden">
-                  <div className="flex items-center justify-center w-20 h-20 bg-gradient-to-tl from-accent-2935c to-accent-2935c-80 rounded-2xl mb-6 shadow-lg group-hover:-rotate-12 transition-transform duration-300">
-                    <span className="material-symbols-rounded text-primary-white text-4xl">
+              {/* Code to Deployment */}
+              <div className="group transform hover:scale-105 transition-all duration-500 h-full">
+                <div className="bg-gradient-to-tr from-primary-white via-primary-white-80 to-accent-2935c-5 p-8 rounded-2xl shadow-2xl hover:shadow-3xl border border-accent-2935c-20 hover:border-accent-2935c-40 backdrop-blur-sm relative overflow-hidden h-full flex flex-col">
+                  <div className="flex items-center justify-center w-20 h-20 bg-gradient-to-tr from-accent-2935c to-accent-2935c-80 rounded-2xl mb-6 shadow-lg group-hover:rotate-12 transition-transform duration-300">
+                    <span className="material-symbols-rounded text-primary-white text-6xl">
                       rocket_launch
                     </span>
                   </div>
                   <h3 className="text-2xl font-bold text-primary-2767c mb-4 group-hover:text-accent-2935c transition-colors duration-300">
-                    Auto Deployment
+                    Code to Deployment
                   </h3>
-                  <p className="text-secondary-7450c leading-relaxed">
-                    Seamless deployment pipeline automation from code to
-                    production environment.
+                  <p className="text-secondary-7450c leading-relaxed flex-grow">
+                    Seamlessly deploy your code to production with automated
+                    CI/CD pipelines and infrastructure setup.
                   </p>
                 </div>
               </div>
